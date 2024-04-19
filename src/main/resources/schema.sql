@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS tasks
+(
+    ID          INT AUTO_INCREMENT PRIMARY KEY,
+    NAME        varchar(255) NOT NULL,
+    STATUS      varchar(40),
+    DT_CREATED  TIMESTAMP
+);

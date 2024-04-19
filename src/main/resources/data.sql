@@ -1,0 +1,7 @@
+INSERT into tasks(NAME, STATUS, DT_CREATED) values
+(
+   'task1', 'NOT_STARTED', CURRENT_TIMESTAMP
+),
+(
+'task2', 'IN_PROGRESS', CURRENT_TIMESTAMP
+);
