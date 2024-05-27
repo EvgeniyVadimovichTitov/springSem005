@@ -5,3 +5,11 @@ spring:
     generate-ddl: false
     hibernate:
       ddl-auto: none
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: metrics,prometheus,health
