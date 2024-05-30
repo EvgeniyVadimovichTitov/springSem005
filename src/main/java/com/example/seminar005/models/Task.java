@@ -43,4 +43,14 @@ public class Task{
     public String getStatusStr(){
         return status.getTitle();
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", status=" + getStatus() +
+                ", dtCreate=" + dtCreate +
+                '}';
+    }
 }

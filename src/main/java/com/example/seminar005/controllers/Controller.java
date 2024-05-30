@@ -2,6 +2,7 @@ package com.example.seminar005.controllers;
 
 import com.example.seminar005.models.Task;
 import com.example.seminar005.models.TaskStatus;
+import com.example.seminar005.servises.IFileGateAway;
 import com.example.seminar005.servises.IServise;
 
 
@@ -18,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Controller {
     private final IServise servise;
+    private final IFileGateAway fileGateAway;
 
     private final Counter countCallGetAll = Metrics.counter("count_call_get_all");
 
@@ -29,7 +31,9 @@ public class Controller {
 
     @PostMapping("/create")
     public Task createTask(@RequestBody Task task){
-        return servise.addTask(task);
+        task = servise.addTask(task);
+        fileGateAway.writeToFile(task.getName(),task.toString());
+        return task;
     }
 
     @GetMapping("/status/{status}")
